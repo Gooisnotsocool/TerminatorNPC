@@ -114,6 +114,20 @@ public class TerminatorCommands {
 
     @Command(
             aliases = { "terminator" },
+            usage = "count",
+            desc = "Count all terminators",
+            modifiers = { "count" },
+            min = 1,
+            max = 1,
+            permission = "terminatornpc.deleteterminator"
+    )
+    public void count(CommandContext args, CommandSender sender, NPC npc) throws CommandException {
+        Player player = (Player) sender;
+        player.sendMessage(TerminatorNPC.terminators.size() + " Terminators left.");
+    }
+
+    @Command(
+            aliases = { "terminator" },
             usage = "summoner [playername] [seconds] (amount)",
             desc = "Create a terminator summoner at your location",
             modifiers = { "summoner" },

@@ -329,26 +329,6 @@ public class TerminatorTrait extends Trait {
                                 }
                             }
                         }
-                        else {
-                            if (respawnTimer == 0){
-                                if (debug){
-                                    Bukkit.getLogger().log(Level.INFO, "Respawn timer set to 30 seconds.");
-                                }
-                                respawnTimer = 30*20;
-                            }
-                            else {
-                                respawnTimer--;
-                                if (respawnTimer == 0) {
-                                    if (debug){
-                                        Bukkit.getLogger().log(Level.WARNING, "NPC spawned at: "+location.toString());
-                                    }
-                                    npc.spawn(getRandomLocation(getTarget().getLocation(), 10, 20));
-                                    npc.data().set(NPC.DEFAULT_PROTECTED_METADATA, false);
-                                    needsArmorUpdate = true;
-                                    teleportToAvailableSlot();
-                                }
-                            }
-                        }
                     } catch (NullPointerException exception) {
                         // Ignore
                     }
